@@ -26,7 +26,6 @@ import com.codename1.ui.geom.Rectangle;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import cupcake.Services.UtilisateurService;
-import static cupcake.Services.UtilisateurService.user;
 
 /*
 import tn.esprit.cupcake.services.UtilisateurService;*/
@@ -147,7 +146,7 @@ public class SignInForm extends com.codename1.ui.Form {
         UtilisateurService us = new UtilisateurService();
         us.LoggedUser(gui_Text_Field_2.getText(), gui_Text_Field_1.getText());
         //new InboxForm().show();
-        if (UtilisateurService.user.getUsername() != null && user.getPassword().equals(gui_Text_Field_2.getText())) {
+        if (UtilisateurService.user.getUsername() != null && UtilisateurService.user.getPassword().equals(gui_Text_Field_1.getText())) {
             System.out.println("8alta 0m1hocho uni");
             //Form FL=new Form(UtilisateurService.user.getUsername());
             //FL.show();
