@@ -135,65 +135,25 @@ public class WalkthruForm extends com.codename1.ui.Form {
         gui_tab2Root.setLayout(new BorderLayout());
         gui_tab3Root.setLayout(new BorderLayout());
         
-        String line1 =  "The rule of thirds states that an image is\nmost pleasing when its subjects or\nregions are ...";
+        String line1 =  "Les meilleur produit et recette sont a votre porté\ndans notre application...";
         if(!Display.getInstance().isTablet()) {
             line1 = line1.replace('\n', ' ');
         }
-
-        String line2 =  "The second page of a wizard is important\nbut nothing beats the third page ...";
-        if(!Display.getInstance().isTablet()) {
-            line2 = line2.replace('\n', ' ');
-        }
-
-        String line3 =  "This is all made possible thanks to\nCodename One which makes it\nwork on all OS's ...";
-        if(!Display.getInstance().isTablet()) {
-            line3 = line3.replace('\n', ' ');
-        }
         
         Container content1 = BoxLayout.encloseY(
-                new Label("Rule of thirds", "WelcomeTitle"),
+                new Label("Bienvenue", "WelcomeTitle"),
                 new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
                 new SpanLabel(line1, "WelcomeBody")
         );
-
-        Container content2 = BoxLayout.encloseY(
-                new Label("Rule of Page 2", "WelcomeTitle"),
-                new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
-                new SpanLabel(line2, "WelcomeBody")
-        );
-
-        Container content3 = BoxLayout.encloseY(
-                new Label("Codename One", "WelcomeTitle"),
-                new Label(resourceObjectInstance.getImage("welcome-separator.png"), "WelcomeTitle"),
-                new SpanLabel(line3, "WelcomeBody")
-        );
-
         content1.setUIID("WelcomeContent");
-        content2.setUIID("WelcomeContent");
-        content3.setUIID("WelcomeContent");
 
         gui_tab1Root.add(BorderLayout.SOUTH, content1);
-        gui_tab2Root.add(BorderLayout.SOUTH, content2);
-        gui_tab3Root.add(BorderLayout.SOUTH, content3);
 
         gui_tab1Root.getUnselectedStyle().setBgPainter(new BgPainter(gui_tab1Root, bla, content1.getPreferredH() +
                 content1.getUnselectedStyle().getPaddingTop() + 
                 content1.getUnselectedStyle().getPaddingBottom() + 
                 content1.getUnselectedStyle().getMarginTop() + 
                 content1.getUnselectedStyle().getMarginBottom()));
-
-        gui_tab2Root.getUnselectedStyle().setBgPainter(new BgPainter(gui_tab2Root, griffith, content2.getPreferredH() +
-                content2.getUnselectedStyle().getPaddingTop() + 
-                content2.getUnselectedStyle().getPaddingBottom() + 
-                content2.getUnselectedStyle().getMarginTop() + 
-                content2.getUnselectedStyle().getMarginBottom()));
-
-        gui_tab3Root.getUnselectedStyle().setBgPainter(new BgPainter(gui_tab3Root, learn, content3.getPreferredH() +
-                content3.getUnselectedStyle().getPaddingTop() + 
-                content3.getUnselectedStyle().getPaddingBottom() + 
-                content3.getUnselectedStyle().getMarginTop() + 
-                content3.getUnselectedStyle().getMarginBottom()));
-
         
         gui_Tabs_1.addSelectionListener((i, ii) -> {
             switch(ii) {
@@ -315,7 +275,7 @@ public class WalkthruForm extends com.codename1.ui.Form {
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_6.getLayout()).setValign(com.codename1.ui.Component.CENTER);
         gui_Container_6.addComponent(gui_Button_1);
         gui_Container_6.addComponent(gui_Label_1);
-        gui_Button_1.setText("Get Started");
+        gui_Button_1.setText("Commencez");
         gui_Button_1.setUIID("GetStartedButton");
         gui_Button_1.setName("Button_1");
         gui_Button_1.setTextPosition(com.codename1.ui.Component.LEFT);

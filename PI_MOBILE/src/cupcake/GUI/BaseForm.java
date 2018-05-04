@@ -43,7 +43,9 @@ public class BaseForm extends Form {
 	private EncodedImage encoded;
 	private URLImage uRLImage;
 	private ImageViewer imgv;
+        
     public void installSidemenu(Resources res) {
+        
         Image selection = res.getImage("selection-in-sidemenu.png");
         
         Image inboxImage = null;
@@ -86,8 +88,6 @@ public class BaseForm extends Form {
 	//		PatisserieService.patisserie=null;
 	//		new SignInForm(res).show();
 	//	});
-//
-        
         // spacer
         getToolbar().addComponentToSideMenu(new Label(" ", "SideCommand"));
 		/*encoded = EncodedImage.createFromImage(res.getImage(""), false);
@@ -108,7 +108,6 @@ public class BaseForm extends Form {
   //      getToolbar().addComponentToSideMenu(new Label(UtilisateurService.user.getUsername()+" "+UtilisateurService.user.getDate_naissance(), "SideCommandSmall"));
     }
 
-        
     protected boolean isCurrentInbox() {
         return false;
     }

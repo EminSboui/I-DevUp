@@ -106,7 +106,7 @@ public class SignInForm extends com.codename1.ui.Form {
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.BorderLayout());
-        setTitle("Sign In");
+        setTitle("Connecté vous");
         setName("SignInForm");
         addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Container_1);
         gui_Container_1.setScrollableY(true);

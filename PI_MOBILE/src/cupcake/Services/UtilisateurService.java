@@ -10,20 +10,11 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
-import com.codename1.l10n.ParseException;
-import com.codename1.l10n.SimpleDateFormat;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.events.ActionListener;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 /*import java.util.logging.Level;
 import java.util.logging.Logger;*/
-import cupcake.Entite.Client;
-import cupcake.Entite.Patissier;
 import cupcake.Entite.User;
 
 
@@ -33,15 +24,10 @@ public class UtilisateurService {
 
 	public User getListUtilisateur(String json) {
 		User u = new User();
-                System.out.println("11");
 		try {
-                    System.out.println("22");
-			System.out.println(json);
 			JSONParser j = new JSONParser();
 			Map<String, Object> utilisateurs = j.parseJSON(new CharArrayReader(json.toCharArray()));
-			System.out.println(utilisateurs);
 			if (utilisateurs.get("id") != null) {
-                            System.out.println("33");
 				//u.setId(Integer.parseInt(utilisateurs.get("id").toString()));
                                 u.setUsername(utilisateurs.get("username").toString());
                                 u.setEmail(utilisateurs.get("email").toString());
@@ -68,26 +54,19 @@ public class UtilisateurService {
 				//(Date) utilisateurs.get("passwordRequestedAt")
 				//(Date) utilisateurs.get("lastLogin")
 			}
-			System.out.println(u);
-
 		} catch (IOException ex) {
 		}
-		/*catch (ParseException ex) {
-			ex.printStackTrace();
-		}*/
 		return u;
 	}
 
 	public User LoggedUser(String username, String pw) {
-            System.out.println(username+""+pw);
 		ConnectionRequest con = new ConnectionRequest();
-		con.setUrl("http://127.0.0.1:8000/loggeduser/"+username);
+		con.setUrl("http://localhost:8000/symfony-api/web/app_dev.php/loggeduser/"+username);
 		con.addResponseListener(new ActionListener<NetworkEvent>() {
 			@Override
 			public void actionPerformed(NetworkEvent evt) {
 				UtilisateurService us = new UtilisateurService();
 				user = us.getListUtilisateur(new String(con.getResponseData()));
-				System.out.println(user);
 				if (user.getUsername() != null ) {
                                     System.out.println("GO GO GO");
 				}

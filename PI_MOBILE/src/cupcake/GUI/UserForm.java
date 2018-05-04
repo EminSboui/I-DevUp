@@ -50,7 +50,6 @@ public class UserForm extends com.codename1.ui.Form {
  
     public UserForm() {
         this(com.codename1.ui.util.Resources.getGlobalResources()); 
-		System.out.println("test");
     } 
      
     public UserForm(com.codename1.ui.util.Resources resourceObjectInstance) {
@@ -98,17 +97,15 @@ public class UserForm extends com.codename1.ui.Form {
         public void dataChanged(int type, int index) {
         }
     }
-
-	
-	  private void guiBuilderBindComponentListeners() {
+            
+        private void guiBuilderBindComponentListeners() {
         UserForm.EventCallbackClass callback = new UserForm.EventCallbackClass();
         gui_Button_2.addActionListener(callback);
 		gui_Button_1.addActionListener(callback);
 		gui_Button_4.addActionListener(callback);
     }
 //-- DON'T EDIT BELOW THIS LINE!!! 
- 
- 
+        
 // <editor-fold defaultstate="collapsed" desc="Generated Code">                           
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         //setLayout(new com.codename1.ui.layouts.LayeredLayout()); 
@@ -202,7 +199,7 @@ public class UserForm extends com.codename1.ui.Form {
             //form.add(myPic);
              
             //form.add(new Label("User not connected"));
-			gui_Label_1.setText("User not connected");
+            gui_Label_1.setText("User not connected");
              
             //Button buttonLogin = new Button("Login");
             gui_Button_4.addActionListener((e) -> {
@@ -304,7 +301,8 @@ public class UserForm extends com.codename1.ui.Form {
  
     private void facebookLogout(UserForm form) {
         String clientId = "563976137303485";
-        String redirectURI = "http://localhost/"; //Una URI cualquiera. Si la pones en tu equipo debes crear un Servidor Web. Yo usé XAMPP
+        String redirectURI = "http://localhost/";
+        //Una URI cualquiera. Si la pones en tu equipo debes crear un Servidor Web. Yo usé XAMPP
         String clientSecret = "42e3ac786b4dfd94b4599aa2e33d61dc";
         Login fb = FacebookConnect.getInstance();
         fb.setClientId(clientId);
@@ -344,10 +342,10 @@ public class UserForm extends com.codename1.ui.Form {
                 String token = fb.getAccessToken().getToken();
                 Storage.getInstance().writeObject("token", token);
                 showIfLoggedIn(form);
-				//new TrendingForm().show();
+                //new TrendingForm().show();
             } 
-             
         }); 
+        
         //trigger the login if not already logged in 
         if(!fb.isUserLoggedIn()){
             fb.doLogin();
