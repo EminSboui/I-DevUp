@@ -9,6 +9,7 @@ import com.codename1.components.FloatingActionButton;
 import com.codename1.components.FloatingHint;
 import com.codename1.components.OnOffSwitch;
 import com.codename1.io.FileSystemStorage;
+import com.codename1.l10n.ParseException;
 import com.codename1.l10n.SimpleDateFormat;
 import com.codename1.ui.Button;
 import static com.codename1.ui.Component.RIGHT;
@@ -72,6 +73,7 @@ public class AddEvent {
         
         Label hd=new Label("Heure Début");
          Picker timestart = new Picker();
+         
          timestart.setType(Display.PICKER_TYPE_TIME);
         Label hf=new Label("Heure Fin     :");
          Picker timefin = new Picker();
@@ -95,7 +97,7 @@ public class AddEvent {
                 tickets.add(t);
               
                 addEvent.add(tickets);
-                TextField nbrr=new TextField("", "Nombre", 5, TextArea.NUMERIC);
+                TextField nbrr=new TextField("0", "Nombre", 5, TextArea.NUMERIC);
                 Container nbrlimite = BoxLayout.encloseY(new Label("Nombre Limite"),nbrr);
                 nbrlimite.setVisible(false);
                 tickets.add(nbrlimite);
@@ -107,7 +109,7 @@ public class AddEvent {
                  System.out.println(ticket.isValue());
                  if(ticket.isValue()){
                      nbrlimite.setVisible(true);
-                     nbr = Integer.parseInt(nbrr.getText());
+                    
                      i=1;
                  }else {
                      nbrlimite.setVisible(false);
@@ -124,6 +126,7 @@ public class AddEvent {
             Display.getInstance().openGallery((ActionListener) (ActionEvent ev) -> {
                 if (ev != null && ev.getSource() != null) {
                     imgPath = (String) ev.getSource();
+                    System.out.println((String) ev.getSource());
                     int fileNameIndex = imgPath.lastIndexOf("/") + 1;
                     imgName = imgPath.substring(fileNameIndex);
                     try {
@@ -140,10 +143,15 @@ public class AddEvent {
                 }
             }, Display.GALLERY_IMAGE);
         });
-        btnOk.addActionListener((l)->{
-            ServiceEvent.ajoutTask(new Event(0, DateMc.toString(),timestart.toString() , timefin.toString(), Nom.getText(), Texte.getText(), Location.getText(), imgName, 0,i , nbr, 0.0,0.0, 1));
-            Dialog.show("Confirmation", "added successfully!", "Ok", null);
-        });
+        btnOk.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent l) {
+             nbr=Integer.parseInt(nbrr.getText());
+                    System.out.println(DateMc.getText()+"+++"+timestart.getText()+"*******"+nbr);
+                 ServiceEvent.ajoutTask(new Event(0, DateMc.getText(),timestart.getText()+":00" ,timefin.getText()+":00", Nom.getText(), Texte.getText(), Location.getText(), imgName, 0,i , nbr, 0.0,0.0,1));
+            Dialog.show("Confirmation", "Ajout Avec Succés", "Ok", null);
+             }
+         });
                          addEvent.add(fab);
                         addEvent.add(btnOk) ;
         // setupSideMenu(res);
