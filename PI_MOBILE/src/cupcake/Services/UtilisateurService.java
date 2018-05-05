@@ -81,7 +81,7 @@ public class UtilisateurService {
 	public User LoggedUser(String username, String pw) {
             System.out.println(username+""+pw);
 		ConnectionRequest con = new ConnectionRequest();
-		con.setUrl("http://127.0.0.1:8000/loggeduser/"+username);
+		con.setUrl("http://localhost/pidevWEB_v1.0/web/app_dev.php/loggeduser/"+username);
 		con.addResponseListener(new ActionListener<NetworkEvent>() {
 			@Override
 			public void actionPerformed(NetworkEvent evt) {
