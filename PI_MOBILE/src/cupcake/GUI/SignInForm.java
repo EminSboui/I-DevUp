@@ -106,7 +106,7 @@ public class SignInForm extends com.codename1.ui.Form {
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
         setLayout(new com.codename1.ui.layouts.BorderLayout());
-        setTitle("Connecté vous");
+        setTitle("Connectez-vous");
         setName("SignInForm");
         addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Container_1);
         gui_Container_1.setScrollableY(true);
@@ -151,7 +151,7 @@ public class SignInForm extends com.codename1.ui.Form {
             System.out.println("8alta 0m1hocho uni");
             //Form FL=new Form(UtilisateurService.user.getUsername());
             //FL.show();
-            new TrendingForm().show();
+            new DisplayRecipe().show();
         } else {
             Dialog p = new Dialog("Paramétre invalide");
             p.show("OUPS","Wrong username or password", "OK", null);

@@ -15,13 +15,14 @@ public class Recipe {
     private String description;
     private String picture;
     private String video;
-    private String recipeuser;
+    private int recipeuser;
 
 
-    public Recipe(String recipename, String picture, String recipeuser) {
+    public Recipe(String recipename, String description, int recipeuser,String picture) {
         this.recipename = recipename;
-        this.picture = picture;
+        this.description = description;
         this.recipeuser = recipeuser;
+        this.picture= picture;
     }
     
     public Recipe(String recipename, String description, String picture,String a) {
@@ -60,7 +61,7 @@ public class Recipe {
         this.video = video;
     }
 
-    public Recipe(String recipename, String description, String picture, String video, String recipeuser) {
+    public Recipe(String recipename, String description, String picture, String video, int recipeuser) {
         this.recipename = recipename;
         this.description = description;
         this.picture = picture;
@@ -111,11 +112,11 @@ public class Recipe {
         this.recipeid = recipeid;
     }
 
-    public String getRecipeuser() {
+    public int getRecipeuser() {
         return recipeuser;
     }
 
-    public void setRecipeuser(String recipeuser) {
+    public void setRecipeuser(int recipeuser) {
         this.recipeuser = recipeuser;
     }
 

@@ -72,7 +72,6 @@
     <image name="progress.png" type="multi"  />
     <image name="selection-in-sidemenu.png" type="multi"  />
     <image name="sidemenu-background.jpg"  />
-    <image name="skate-park.jpg"  />
     <theme name="Theme">
         <val key="@ComponentGroupBool" value="true" />
         <val key="@includeNativeBool" value="true" />

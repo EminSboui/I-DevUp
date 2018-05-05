@@ -69,7 +69,6 @@ public class BaseForm extends Form {
         inbox.setUIID("SideCommand");
         inboxButton.addActionListener(e -> new InboxForm().show());
         getToolbar().addComponentToSideMenu(inbox);
-        
         getToolbar().addCommandToSideMenu("WalkthruForm", statsImage, e -> new WalkthruForm(res).show());
         getToolbar().addCommandToSideMenu("Calendar", calendarImage, e -> new CalendarForm(res).show());
         getToolbar().addCommandToSideMenu("Map", null, e -> {});

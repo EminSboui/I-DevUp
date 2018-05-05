@@ -28,6 +28,9 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
+import cupcake.GUI.AddRecipe;
+import cupcake.GUI.DisplayOne;
+import cupcake.GUI.DisplayRecipe;
 import java.io.IOException;
 import cupcake.GUI.SplashForm;
 

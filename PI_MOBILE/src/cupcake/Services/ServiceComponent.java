@@ -22,9 +22,10 @@ import java.util.Map;
  */
 public class ServiceComponent {
     
-    public void addComponent(Component component) {
+    public static void addComponent(Component component) {
         ConnectionRequest con = new ConnectionRequest();
-        String Url = "http://localhost:8000/symfony-api/web/component/" +component.getComponentname()+ "/" + component.getUnity();
+        String Url = "http://localhost:8000/symfony-api/web/app_dev.php/recipe/addComponent/"
+            +component.getComponentname()+ "/" + component.getUnity()+"/"+component.getRecipeid();
         con.setUrl(Url);
         con.addResponseListener((e) -> {
             String str = new String(con.getResponseData());

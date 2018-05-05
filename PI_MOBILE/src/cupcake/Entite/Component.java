@@ -34,8 +34,8 @@ public class Component {
     public Component(String componentname, int quantity,String unity, int recipeid) {
         this.componentname = componentname;
         this.quantity = quantity;
-        this.recipeid = recipeid;
         this.unity = unity;
+        this.recipeid = recipeid;
     }
 
     public Component(String componentname, int quantity) {
